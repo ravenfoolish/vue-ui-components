@@ -6,48 +6,37 @@ type Story = StoryObj<typeof MyButton>;
 const meta: Meta<typeof MyButton> = {
   title: "MyButton",
   component: MyButton,
+  render: (args) => ({
+    components: { MyButton },
+    setup() {
+      return { args };
+    },
+    template: "<MyButton v-bind='args' />",
+  }),
+  tags: ["autodocs"], // ドキュメント生成のためのタグ
+  // ここにまとめて args を定義
+  args: {
+    label: "ボタン",
+    variant: "primary",
+    size: "medium",
+  },
+  // ここに args の型情報を定義
+  argTypes: {
+    variant: {
+      control: {
+        type: "inline-radio",
+      },
+      options: ["primary", "secondary"],
+    },
+    size: {
+      control: {
+        type: "select",
+      },
+      options: ["small", "medium", "large"],
+    },
+  },
 };
 
-// 「ボタン」
-export const Default: Story = {
-    render: (args) => ({
-      components: { MyButton },
-      setup() {
-        return { args };
-      },
-      template: "<MyButton v-bind='args' />",
-    }),
-    args: {
-      label: "ボタン",
-    },
-  };
-  
-  // 「ログイン」
-  export const Login: Story = {
-    render: (args) => ({
-      components: { MyButton },
-      setup() {
-        return { args };
-      },
-      template: "<MyButton v-bind='args' />",
-    }),
-    args: {
-      label: "ログイン",
-    },
-  };
-  
-  // 「会員登録」
-  export const SignUp: Story = {
-    render: (args) => ({
-      components: { MyButton },
-      setup() {
-        return { args };
-      },
-      template: "<MyButton v-bind='args' />",
-    }),
-    args: {
-      label: "会員登録",
-    },
-  };
+export const Default: Story = {};
 
 export default meta;
