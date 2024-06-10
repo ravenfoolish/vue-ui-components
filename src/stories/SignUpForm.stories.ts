@@ -1,5 +1,6 @@
 import SignUpForm from "../components/SignUpForm.vue";
 import type { Meta, StoryObj } from "@storybook/vue3";
+import { userEvent, within } from "@storybook/testing-library";
 
 type Story = StoryObj<typeof SignUpForm>;
 
