@@ -1,14 +1,3 @@
-import type { Preview } from "@storybook/vue3";
-
-const preview: Preview = {
-  parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
-  },
-};
-
-export default preview;
+import { Decorator, Parameters } from "@storybook/vue3";
+export const parameters: Parameters = {};
+export const decorators: Decorator[] = [];
